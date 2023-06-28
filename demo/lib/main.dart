@@ -80,19 +80,34 @@ class MyApp extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.asset(
-                        'images/logo.png',
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    Container(
+                      width: 150,
+                      height: 130,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage('images/logo.png'),
+                            fit: BoxFit.cover,
+                          )),
+                    )
                   ],
                 ),
               ),
+              ListTile(
+                title: Text('Profile'),
+                leading: Icon(Icons.people),
+              ),
+              ListTile(
+                title: Text('Email'),
+                leading: Icon(Icons.email),
+              ),
+              ListTile(
+                title: Text('Settings'),
+                leading: Icon(Icons.settings),
+              )
             ],
           ),
         ),
