@@ -71,6 +71,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Layout Demo',
+      initialRoute: '/',
+      routes: {
+        '/second': (context) => const SecondScreen(),
+      },
       home: Scaffold(
         drawer: Drawer(
           child: ListView(
@@ -121,6 +125,14 @@ class MyApp extends StatelessWidget {
             titleSection,
             buttonSection,
             textSection,
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/second');
+                },
+                child: const Text('Launch Screen'),
+              ),
+            )
           ],
         ),
         //implementing the bottom navigation
@@ -167,4 +179,25 @@ Column _buildButtonColumn(Color color, IconData icon, String label) {
       ),
     ],
   );
+}
+
+//making the second screen
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Welcome to the second screen"),
+      ),
+      body: Center(
+          child: ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text("Go Back!"),
+      )),
+    );
+  }
 }
