@@ -123,6 +123,25 @@ class MyApp extends StatelessWidget {
             textSection,
           ],
         ),
+        //implementing the bottom navigation
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: 0,
+            fixedColor: Colors.blue,
+            items: [
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: Icon(Icons.home),
+              ),
+              BottomNavigationBarItem(
+                label: "Search",
+                icon: Icon(Icons.search),
+              ),
+              BottomNavigationBarItem(
+                label: "Profile",
+                icon: Icon(Icons.account_circle),
+              ),
+            ],
+            onTap: (int indexOfItem) {}),
       ),
     );
   }
