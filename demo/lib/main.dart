@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:demo/login.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: LoginPage(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -71,16 +74,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Layout Demo',
-      initialRoute: '/',
       routes: {
-        '/second': (context) => const SecondScreen(),
+        '/next': (context) => LoginPage(),
       },
       home: Scaffold(
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
               DrawerHeader(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.blue,
                 ),
                 child: Column(
@@ -90,7 +92,7 @@ class MyApp extends StatelessWidget {
                     Container(
                       width: 150,
                       height: 130,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: AssetImage('images/logo.png'),
@@ -100,15 +102,15 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
-              ListTile(
+              const ListTile(
                 title: Text('Profile'),
                 leading: Icon(Icons.people),
               ),
-              ListTile(
+              const ListTile(
                 title: Text('Email'),
                 leading: Icon(Icons.email),
               ),
-              ListTile(
+              const ListTile(
                 title: Text('Settings'),
                 leading: Icon(Icons.settings),
               )
@@ -128,7 +130,8 @@ class MyApp extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/second');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 child: const Text('Launch Screen'),
               ),
@@ -139,7 +142,7 @@ class MyApp extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: 0,
             fixedColor: Colors.blue,
-            items: [
+            items: const [
               BottomNavigationBarItem(
                 label: "Home",
                 icon: Icon(Icons.home),
