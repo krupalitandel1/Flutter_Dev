@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:demo/login.dart';
+import 'package:demo/productsList.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: LoginPage(),
+    home: ProductList(),
   ));
 }
 
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Layout Demo',
       routes: {
-        '/next': (context) => LoginPage(),
+        '/next': (context) => ProductList(),
       },
       home: Scaffold(
         drawer: Drawer(
